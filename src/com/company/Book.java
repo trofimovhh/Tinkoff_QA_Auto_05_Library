@@ -29,33 +29,43 @@ public class Book {
 
     Book(String title) {
         this.title = title;
-        this.author = "unknown";
+        this.author = null;
+        this.serialNumber = 0;
+        this.numberOfPages = 0;
+    }
+
+    Book() {
+        this.title = null;
+        this.author = null;
         this.serialNumber = 0;
         this.numberOfPages = 0;
     }
 
     @Override
     public String toString() {
-        if (!author.equals("unknown") && numberOfPages != 0 && serialNumber != 0) {
+        if (author != null && numberOfPages != 0 && serialNumber != 0) {
             return "book " +
                     "titled '" + title + '\'' +
                     ", written by " + author +
                     ", consists of " + numberOfPages + " pages" +
                     ", serial number " + serialNumber + '.';
         }
-        if (!author.equals("unknown") && numberOfPages != 0) {
+        if (author != null && numberOfPages != 0) {
             return "book " +
                     "titled '" + title + '\'' +
                     ", written by " + author +
                     ", consists of " + numberOfPages + " pages.";
         }
 
-        if (!author.equals("unknown")) {
+        if (author != null && title != null) {
             return "book " +
                     "titled '" + title + '\'' +
                     ", written by " + author + ".";
         }
-        return "book " +
-                "titled '" + title + "'.";
+        if (title != null) {
+            return "book " +
+                    "titled '" + title + "'.";
+        }
+        return "It's not a book, mate!";
     }
 }

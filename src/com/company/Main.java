@@ -11,7 +11,8 @@ public class Main {
         Book mindset = new Book("Mindset", "Carol S. Dweck", 320);
         Book chasingExcellence = new Book("Chasing Excellence", "Ben Bergeron");
         Book grit = new Book("Grit");
-        Book[] myLibrary = new Book[]{bible, atomicHabits, martinEden, dottir, modernOperatingSystems, mindset, chasingExcellence, grit};
+        Book noBook = new Book();
+        Book[] myLibrary = new Book[]{bible, atomicHabits, martinEden, dottir, modernOperatingSystems, mindset, chasingExcellence, grit, noBook};
         Reader myReader = new Reader();
         Book myNextReading = myReader.choiceBook(myLibrary);
         myReader.readBook(myNextReading);
