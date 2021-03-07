@@ -29,14 +29,11 @@ public class Book {
 
     Book(String title) {
         this.title = title;
-        this.author = null;
         this.serialNumber = 0;
         this.numberOfPages = 0;
     }
 
     Book() {
-        this.title = null;
-        this.author = null;
         this.serialNumber = 0;
         this.numberOfPages = 0;
     }
@@ -65,7 +62,8 @@ public class Book {
         if (title != null) {
             return "book " +
                     "titled '" + title + "'.";
+        } else {
+            return "It's not a book, mate!";
         }
-        return "It's not a book, mate!";
     }
 }

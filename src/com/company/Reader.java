@@ -19,27 +19,36 @@ public class Reader {
     void rateBook(Book bookToRate) {
         String review;
         if (bookToRate.title == null) {
-            review = "There is nothing to evaluate!";
+            bookToRate.title = "";
+        }
+        if (bookToRate.author == null) {
+            bookToRate.author = "";
+        }
+        final Random rateBookRandom = new Random();
+        String title = bookToRate.title;
+        int titleLength = title.length();
+        String author = bookToRate.author;
+        int authorNameLength = author.length();
+        int numOfPages = bookToRate.numberOfPages;
+        int serialNumber = bookToRate.serialNumber;
+        boolean noTitle = false;
+        if (titleLength == 0) {
+            noTitle = true;
+            titleLength -= rateBookRandom.nextInt(10);
+        }
+        if (authorNameLength == 0) {
+            authorNameLength -= rateBookRandom.nextInt(10);
+        }
+        if (numOfPages == 0) {
+            numOfPages -= rateBookRandom.nextInt(10);
+        }
+        if (serialNumber == 0) {
+            numOfPages -= rateBookRandom.nextInt(10);
+        }
+        int score = titleLength + authorNameLength + numOfPages + serialNumber;
+        if (noTitle) {
+            review = "My rate for the book is " + score + " points.";
         } else {
-            if (bookToRate.author == null) {
-                bookToRate.author = "";
-            }
-            final Random rateBookRandom = new Random();
-            int titleLength = bookToRate.title.length();
-            String author = bookToRate.author;
-            int authorNameLength = author.length();
-            int numOfPages = bookToRate.numberOfPages;
-            int serialNumber = bookToRate.serialNumber;
-            if (authorNameLength == 0) {
-                authorNameLength -= rateBookRandom.nextInt(10);
-            }
-            if (numOfPages == 0) {
-                numOfPages -= rateBookRandom.nextInt(10);
-            }
-            if (serialNumber == 0) {
-                numOfPages -= rateBookRandom.nextInt(10);
-            }
-            int score = titleLength + authorNameLength + numOfPages + serialNumber;
             review = "My rate for the '" + bookToRate.title + "' book is " + score + " points.";
         }
         System.out.println(review);

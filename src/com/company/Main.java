@@ -17,5 +17,7 @@ public class Main {
         Book myNextReading = myReader.choiceBook(myLibrary);
         myReader.readBook(myNextReading);
         myReader.rateBook(myNextReading);
+        myReader.readBook(noBook);
+        myReader.rateBook(noBook);
     }
 }
